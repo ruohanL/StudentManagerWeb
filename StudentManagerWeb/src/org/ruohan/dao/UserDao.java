@@ -41,4 +41,65 @@ public class UserDao {
 		return user;
 	}
 
+	public static User getUser() {
+
+		Connection conn = DBUtil.getConn();
+
+		String sql = "SELECT * FROM users ";
+		User user = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement(sql);
+
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				user = new User();
+				user.setUserName(rs.getString("user_name"));
+				user.setPwd(rs.getString("pwd"));
+				user.setName(rs.getString("name"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, ps, rs);
+		}
+
+		return user;
+	}
+
+	public static User getUserByID(Integer id) {
+
+		Connection conn = DBUtil.getConn();
+
+		String sql = "SELECT * FROM users WHERE id= ?";
+		User user = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				user = new User();
+				user.setUserName(rs.getString("user_name"));
+				user.setPwd(rs.getString("pwd"));
+				user.setName(rs.getString("name"));
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, ps, rs);
+		}
+
+		return user;
+	}
+
 }

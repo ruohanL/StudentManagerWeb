@@ -8,9 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.ruohan.util.DBUtil;
+import org.ruohan.bean.Student;
+import org.ruohan.bean.User;
+import org.ruohan.dao.StudentDao;
+import org.ruohan.dao.UserDao;
 
-public class UserUpdateServlet extends HttpServlet {
+public class UserToUpdateServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -20,20 +23,24 @@ public class UserUpdateServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// 1.设置编码
+
+		// 设置编码
+
 		request.setCharacterEncoding("utf-8");
-		// 2.接收参数
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html");
+		// 接收参数
+
 		String idStr = request.getParameter("id");
 		Integer id = Integer.parseInt(idStr);
+		// 响应
 
-		String pwd = request.getParameter("pwd");
+		User user = UserDao.getUserByID(id);
 
-		// 3.响应
-		String sql = "update user set pwd=? where id= ?";
-		Object[] objs = { pwd, id };
+		request.setAttribute("user", user);
 
-		response.sendRedirect("index.jsp");
-
+		request.getRequestDispatcher("userUpdate.jsp").forward(request,
+				response);
 	}
 
 }

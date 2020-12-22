@@ -89,15 +89,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         border: 1px;
         width: 178.267px;
         height: 40.4px;
-        border-bottom: 1px solid rgba(34, 36, 38, .1);
         font-size: 14px;
         text-align: center;
     }
 
-    .a_update, .a_del {
-        text-decoration: none;
-        color: black;
-        cursor: pointer;
+    table {
+        margin-left: 100px;
+    }
+
+    input {
+        width: 300px;
+        height: 40px;
+        border: none;
+        border-radius: 0;
+        outline: 0;
+        font: inherit;
+        font-size: .875rem;
+    }
+
+    .div_update {
+        background-color: #00ad5f;
+        width: 100px;
+        margin-left: 150px;
+        margin-top: 50px;
     }
 </style>
 <body>
@@ -119,13 +133,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
 
         <div class="bar">
-            <a href="studentSearch.jsp"> 学生详情</a>
+            <a href="studentInfo.jsp"> 学生详情</a>
         </div>
         <div class="bar">
             <a href="studentAdd.jsp"> 新增学生</a>
         </div>
-        <div class="bar" >
-            <a href="studentSearch.jsp" > 搜索学生</a>
+        <div class="bar">
+            <a href="studentSearch.jsp"> 搜索学生</a>
         </div>
         <div class="bar" style="background-color:#24A260">
             <a href="managerInfo.jsp"> 管理员信息</a>
@@ -135,7 +149,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="box_main">
-        管理员信息
+        <table>
+            <tr>
+                <td> ID</td>
+                <td><input type="text" value="${user.id }" name="id" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td> 姓名</td>
+                <td><input type="text" value="${user.name }" name="name" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td> 账户</td>
+                <td><input type="text" value="${user.userName }" readonly="readonly"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="div_update"><a href="userToUpdate?id=${user.id }">点击修改</a></div>
+                </td>
+            </tr>
+
+
+        </table>
     </div>
 </div>
 </body>
