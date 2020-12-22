@@ -28,6 +28,34 @@
     <servlet-name>StudentUpdateServlet</servlet-name>
     <servlet-class>org.ruohan.action.StudentUpdateServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StudentInfoServlet</servlet-name>
+    <servlet-class>org.ruohan.action.StudentInfoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StudentAddServlet</servlet-name>
+    <servlet-class>org.ruohan.action.StudentAddServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>StudentSearchServlet</servlet-name>
+    <servlet-class>org.ruohan.action.StudentSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UserUpdateServlet</servlet-name>
+    <servlet-class>org.ruohan.action.UserUpdateServlet</servlet-class>
+  </servlet>
+
+
+
+
 
 
 
@@ -49,6 +77,22 @@
   <servlet-mapping>
     <servlet-name>StudentUpdateServlet</servlet-name>
     <url-pattern>/studentUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentInfoServlet</servlet-name>
+    <url-pattern>/studentInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentAddServlet</servlet-name>
+    <url-pattern>/studentAdd</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentSearchServlet</servlet-name>
+    <url-pattern>/studentSearch</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UserUpdateServlet</servlet-name>
+    <url-pattern>/userUpdate</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

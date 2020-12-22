@@ -2,12 +2,16 @@ package org.ruohan.bean;
 
 public class Student {
 	private Integer id;
-	private Integer studentId;
+	private String studentId;
 	private String name;
 	private String sex;
 	private Integer age;
 	private String clazz;
 	private String phone;
+	private String email;
+	private String position;
+	private String id_card;
+	private String address;
 
 	public Integer getId() {
 		return id;
@@ -17,11 +21,11 @@ public class Student {
 		this.id = id;
 	}
 
-	public Integer getStudentId() {
+	public String getStudentId() {
 		return studentId;
 	}
 
-	public void setStudentId(Integer studentId) {
+	public void setStudentId(String studentId) {
 		this.studentId = studentId;
 	}
 
@@ -65,8 +69,41 @@ public class Student {
 		this.phone = phone;
 	}
 
-	public Student(Integer id, Integer studentId, String name, String sex,
-			Integer age, String clazz, String phone) {
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public String getId_card() {
+		return id_card;
+	}
+
+	public void setId_card(String idCard) {
+		id_card = idCard;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Student(Integer id, String studentId, String name, String sex,
+			Integer age, String clazz, String phone, String email,
+			String position, String idCard, String address) {
 		super();
 		this.id = id;
 		this.studentId = studentId;
@@ -75,18 +112,15 @@ public class Student {
 		this.age = age;
 		this.clazz = clazz;
 		this.phone = phone;
+		this.email = email;
+		this.position = position;
+		id_card = idCard;
+		this.address = address;
 	}
 
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	@Override
-	public String toString() {
-		return "Student [age=" + age + ", clazz=" + clazz + ", id=" + id
-				+ ", name=" + name + ", phone=" + phone + ", sex=" + sex
-				+ ", studentId=" + studentId + "]";
 	}
 
 }

@@ -99,68 +99,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="box">
     <div class="box_top">
-
     </div>
     <div class="box_bar">
-        <div class="bar">
-            <a href="#"> 首页</a>
+        <div class="bar" style="background-color:#24A260">
+            <a href="main.jsp"> 首页</a>
         </div>
         <div class="bar">
-            <a href="#"> 年级列表</a>
+            <a href="clazzList.jsp"> 班级列表</a>
         </div>
         <div class="bar">
-            <a href="#"> 班级列表</a>
-        </div>
-        <div class="bar">
-            <a href="studentList.jsp"> 学生基本信息</a>
+            <a href="studentList.jsp"> 学生列表</a>
         </div>
 
         <div class="bar">
-            <a href="#"> 学生信息统计</a>
+            <a href="studentSearch.jsp"> 学生详情</a>
         </div>
         <div class="bar">
-            <a href="#"> 新增学生信息</a>
+            <a href="studentAdd.jsp"> 新增学生</a>
         </div>
         <div class="bar">
-            <a href="#"> 修改学生信息</a>
+            <a href="studentSearch.jsp"> 搜索学生</a>
         </div>
         <div class="bar">
-            <a href="#"> 删除学生信息</a>
-        </div>
-
-        <div class="bar">
-            <a href="#"> 课程列表</a>
+            <a href="managerInfo.jsp"> 管理员信息</a>
         </div>
         <div class="bar">
-            <a href="#"> 新增课程</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 考试信息</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 考试信息统计</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 新增考试</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 学生成绩</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 成绩统计</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 学生通讯录</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 管理员信息</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 退出系统</a>
+            <a href="index.jsp"> 退出系统</a>
         </div>
     </div>
     <div class="box_main">
-     学生管理系统
+        学生管理系统
     </div>
 </div>
 </body>

@@ -31,12 +31,16 @@ public class StudentDao {
 			while (rs.next()) {
 				Student student = new Student();
 				student.setId(rs.getInt("id"));
-				student.setStudentId(rs.getInt("student_id"));
+				student.setStudentId(rs.getString("student_id"));
 				student.setName(rs.getString("name"));
 				student.setSex(rs.getString("sex"));
 				student.setAge(rs.getInt("age"));
 				student.setClazz(rs.getString("clazz"));
 				student.setPhone(rs.getString("phone"));
+				student.setEmail(rs.getString("email"));
+				student.setPosition(rs.getString("position"));
+				student.setId_card(rs.getString("id_card"));
+				student.setAddress(rs.getString("address"));
 				students.add(student);
 			}
 
@@ -65,12 +69,53 @@ public class StudentDao {
 			if (rs.next()) {
 				student = new Student();
 				student.setId(rs.getInt("id"));
-				student.setStudentId(rs.getInt("student_id"));
+				student.setStudentId(rs.getString("student_id"));
 				student.setName(rs.getString("name"));
 				student.setSex(rs.getString("sex"));
 				student.setAge(rs.getInt("age"));
 				student.setClazz(rs.getString("clazz"));
 				student.setPhone(rs.getString("phone"));
+				student.setEmail(rs.getString("email"));
+				student.setPosition(rs.getString("position"));
+				student.setId_card(rs.getString("id_card"));
+				student.setAddress(rs.getString("address"));
+
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(conn, ps, rs);
+		}
+
+		return student;
+	}
+
+	public static Student getStudentByNAME(String name) {
+		Connection conn = DBUtil.getConn();
+
+		String sql = "SELECT * FROM student WHERE name = ?";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Student student = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, name);
+			rs = ps.executeQuery();
+
+			if (rs.next()) {
+				student = new Student();
+				student.setId(rs.getInt("id"));
+				student.setStudentId(rs.getString("student_id"));
+				student.setName(rs.getString("name"));
+				student.setSex(rs.getString("sex"));
+				student.setAge(rs.getInt("age"));
+				student.setClazz(rs.getString("clazz"));
+				student.setPhone(rs.getString("phone"));
+				student.setEmail(rs.getString("email"));
+				student.setPosition(rs.getString("position"));
+				student.setId_card(rs.getString("id_card"));
+				student.setAddress(rs.getString("address"));
 
 			}
 

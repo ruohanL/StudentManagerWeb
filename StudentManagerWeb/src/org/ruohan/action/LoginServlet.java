@@ -33,6 +33,7 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("login success!");
 			response.sendRedirect("main.jsp");
 		} else {
+			System.out.println("login error!");
 			String errorMessage = "登录失败，请确认是否输入正确的用户名和密码";
 			request.setAttribute("errorMessage", errorMessage);
 			request.setAttribute("userName", userName);

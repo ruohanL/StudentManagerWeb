@@ -28,15 +28,11 @@ public class StudentUpdateServlet extends HttpServlet {
 		String idStr = request.getParameter("id");
 		Integer id = Integer.parseInt(idStr);
 		
-		String studentIdStr = request.getParameter("studentId");
-		Integer studentId = Integer.parseInt(studentIdStr);
-		
+		String studentId = request.getParameter("studentId");		
 		String name = request.getParameter("name");
-		String sex = request.getParameter("sex");
-		
+		String sex = request.getParameter("sex");	
 		String ageStr = request.getParameter("age");
-		Integer age = Integer.parseInt(ageStr);
-		
+		Integer age = Integer.parseInt(ageStr);	
 		String clazz = request.getParameter("clazz");
 		String phone = request.getParameter("phone");
 
@@ -46,10 +42,10 @@ public class StudentUpdateServlet extends HttpServlet {
 
 	    int count= DBUtil.update(sql, objs);
          if(count>0){
-        	 System.out.println("updatesuccess");
+        	 System.out.println("update success");
         	 response.sendRedirect("studentList.jsp"); 
          }else{
-        	 System.out.println("updateerror"); 
+        	 System.out.println("update error"); 
          }
 		
 	}

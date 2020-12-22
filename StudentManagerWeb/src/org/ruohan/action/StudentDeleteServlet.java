@@ -34,8 +34,9 @@ public class StudentDeleteServlet extends HttpServlet {
 		
 		DBUtil.update(sql, objs);
 		
-		
+		System.out.println("studentList");
 		response.sendRedirect("studentList.jsp");
+		
 	}
 
 }

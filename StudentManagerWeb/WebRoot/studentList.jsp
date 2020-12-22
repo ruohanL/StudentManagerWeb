@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				ArrayList<Student> students = StudentDao.getStudents();
 				request.setAttribute("students", students);
 			%>
-  </head>
+ </head>
 <script src="js/jquery-3.3.1.js"></script>
 <style>
     body {
@@ -51,10 +51,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     .box_main {
         width: 997.75px;
-        height: 600px;
+
         background-color: #FFFFFF;
         margin-top: 2px;
         margin-left: 2px;
+
     }
 
     .box_bar, .box_main {
@@ -99,10 +100,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         font-size: 14px;
         text-align: center;
     }
-    .a_update,.a_del{
+
+    .a_update, .a_del, .a_info  {
         text-decoration: none;
         color: black;
         cursor: pointer;
+    }
+    .span_context{
+
+        color: #e35b5a;
+        font-size: 13px;
     }
 </style>
 <body>
@@ -114,63 +121,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <div class="box_bar">
         <div class="bar">
-            <a href="#"> 首页</a>
+            <a href="main.jsp"> 首页</a>
         </div>
         <div class="bar">
-            <a href="#"> 年级列表</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 班级列表</a>
+            <a href="clazzList.jsp"> 班级列表</a>
         </div>
         <div class="bar" style="background-color:#24A260">
-            <a href="#"> 学生基本信息</a>
+            <a href="studentList.jsp"> 学生列表</a>
         </div>
 
         <div class="bar">
-            <a href="#"> 学生信息统计</a>
+            <a href="studentSearch.jsp"> 学生详情</a>
         </div>
         <div class="bar">
-            <a href="#"> 新增学生信息</a>
+            <a href="studentAdd.jsp"> 新增学生</a>
         </div>
         <div class="bar">
-            <a href="#"> 修改学生信息</a>
+            <a href="studentSearch.jsp"> 搜索学生</a>
         </div>
         <div class="bar">
-            <a href="#"> 删除学生信息</a>
-        </div>
-
-        <div class="bar">
-            <a href="#"> 课程列表</a>
+            <a href="managerInfo.jsp"> 管理员信息</a>
         </div>
         <div class="bar">
-            <a href="#"> 新增课程</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 考试信息</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 考试信息统计</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 新增考试</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 学生成绩</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 成绩统计</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 学生通讯录</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 管理员信息</a>
-        </div>
-        <div class="bar">
-            <a href="#"> 退出系统</a>
+            <a href="index.jsp"> 退出系统</a>
         </div>
     </div>
+    
     <div class="box_main">
+    <span class="span_context">点击姓名查看学生详细信息</span>
         <table>
             <tr>
                 <th>
@@ -196,29 +174,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </th>
             </tr>
             <c:forEach items="${students}" var="student">
-            <tr>
-                <td>
-                    ${student.studentId }
-                </td>
-                <td>
-                    ${student.name }
-                </td>
-                <td>
-                    ${student.sex }
-                </td>
-                <td>
-                    ${student.age }
-                </td>
-                <td>
-                    ${student.clazz }
-                </td>
-                <td>
-                    ${student.phone }
-                </td>
-                <td>
-                     <a href="studentToUpdate?id=${student.id }" class="a_update">修改</a>   <a href="studentDel?id=${student.id }" class="a_del">删除</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        ${student.studentId }
+                    </td>
+                    <td>
+                        <a href="studentInfo?id=${student.id }" class="a_info "> ${student.name }</a>
+                    </td>
+                    <td>
+                        ${student.sex }
+                    </td>
+                    <td>
+                        ${student.age }
+                    </td>
+                    <td>
+                        ${student.clazz }
+                    </td>
+                    <td>
+                        ${student.phone }
+                    </td>
+                    <td>
+                        <a href="studentToUpdate?id=${student.id }" class="a_update">修改</a> <a
+                            href="studentDel?id=${student.id }" class="a_del">删除</a>
+                    </td>
+                </tr>
             </c:forEach>
         </table>
     </div>
@@ -226,12 +205,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </body>
 <script>
     $(function () {
-        $(".a_del").click(
+        $(".bar").hover(
             function () {
-                if(confirm("是否确认删除！")){
-
-                    location.href = "studentDel?id=${student.id }";
-                }
+                $(this).css("background-color", "#24A260")
+            }, function () {
+                $(this).css("background-color", "#26ab65")
             }
         )
     });
