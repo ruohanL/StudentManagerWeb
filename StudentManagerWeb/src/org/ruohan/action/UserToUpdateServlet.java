@@ -39,7 +39,7 @@ public class UserToUpdateServlet extends HttpServlet {
 
 		request.setAttribute("user", user);
 
-		request.getRequestDispatcher("userUpdate.jsp").forward(request,
+		request.getRequestDispatcher("managerUpdate.jsp").forward(request,
 				response);
 	}
 

@@ -50,6 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         background-color: #FFFFFF;
         margin-top: 2px;
         margin-left: 2px;
+        text-align: center;
     }
 
     .box_bar, .box_main {
@@ -128,7 +129,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="box_main">
-        学生管理系统
+        欢迎使用学生管理系统
     </div>
 </div>
 </body>

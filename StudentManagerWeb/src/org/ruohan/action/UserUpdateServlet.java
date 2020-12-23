@@ -29,8 +29,10 @@ public class UserUpdateServlet extends HttpServlet {
 		String pwd = request.getParameter("pwd");
 
 		// 3.œÏ”¶
-		String sql = "update user set pwd=? where id= ?";
+		String sql = "update users set pwd=? where id= ?";
 		Object[] objs = { pwd, id };
+		
+		DBUtil.update(sql, objs);
 
 		response.sendRedirect("index.jsp");
 
